@@ -27,6 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
+if not SECRET_KEY:
+    raise Exception("SECRET_KEY not found in environment variables")
+
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
