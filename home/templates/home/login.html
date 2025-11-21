@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infiolo Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1120, #091c2f);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 35px;
+            width: 380px;
+            border-radius: 12px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
+            border: 1px solid rgba(0, 170, 255, 0.2);
+            animation: fadeIn .8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-logo img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow:
+                0 0 12px rgba(0, 179, 255, 1),
+                0 0 25px rgba(0, 179, 255, 0.7),
+                0 0 45px rgba(0, 179, 255, 0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #0ab3ff;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            color: #9ecae6;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            outline: none;
+            border: 1px solid #0ab3ff;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-size: 15px;
+            transition: .3s ease;
+        }
+
+        .input-group input:focus {
+            box-shadow: 0 0 15px rgba(0, 179, 255, 0.8);
+            transform: scale(1.02);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #0ab3ff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: .3s ease;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .login-btn:hover {
+            background: #0089c7;
+            box-shadow:
+                0 0 20px rgba(0, 179, 255, 1),
+                0 0 40px rgba(0, 179, 255, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .bottom-text {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #91bcd8;
+        }
+
+        .bottom-text a {
+            color: #0ab3ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <div class="login-logo">
+        <img src="{% static 'images/logo.png' %}" alt="Infiolo Logo">
+    </div>
+
+    <h2>Welcome Back</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" name="username" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <button class="login-btn">LOGIN</button>
+
+    </form>
+
+    <div class="bottom-text">
+        Don't have an account? <a href="{% url 'register' %}">Register</a>
+    </div>
+</div>
+
+{% if messages %}
+    {% for message in messages %}
+        <p style="color: red; text-align: center; margin-bottom: 10px;">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+
+</body>
+</html>

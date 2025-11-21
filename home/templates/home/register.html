@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infiolo - Register</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1120, #091c2f);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .register-container {
+            width: 420px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 177, 255, 0.25);
+            box-shadow: 0 0 25px rgba(0, 177, 255, 0.4);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .logo-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-box img {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 15px rgba(0, 179, 255, 1),
+                0 0 30px rgba(0, 179, 255, 0.8);
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #0ab3ff;
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            color: #b2d7f7;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 4px;
+            border-radius: 6px;
+            border: 1px solid #0ab3ff;
+            background: rgba(255, 255, 255, 0.09);
+            color: white;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        .input-group input:focus {
+            box-shadow: 0 0 15px rgba(0, 179, 255, 0.8);
+            transform: scale(1.03);
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 12px;
+            background: #0ab3ff;
+            color: white;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .register-btn:hover {
+            background: #008dc9;
+            box-shadow:
+                0 0 25px rgba(0, 179, 255, 1),
+                0 0 40px rgba(0, 179, 255, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .bottom-text {
+            margin-top: 15px;
+            text-align: center;
+            color: #9ccaea;
+            font-size: 14px;
+        }
+
+        .bottom-text a {
+            color: #0ab3ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="logo-box">
+            <img src="{% static 'images/logo.png' %}" alt="Infiolo Logo" />
+        </div>
+
+        <h2>Create Your Account</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" required />
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" required />
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" required />
+            </div>
+
+            <button class="register-btn">REGISTER</button>
+        </form>
+
+        <div class="bottom-text">
+            Already have an account? <a href="/login/">Login</a>
+        </div>
+    </div>
+</body>
+</html>
