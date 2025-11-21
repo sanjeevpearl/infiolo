@@ -32,7 +32,7 @@ if not SECRET_KEY:
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*", "infiolo.onrender.com","infiolo.in"]
 
 
 # Static files
