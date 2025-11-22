@@ -25,14 +25,34 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+# SECRET_KEY = os.environ.get("SECRET_KEY")
 
-if not SECRET_KEY:
-    raise Exception("SECRET_KEY not found in environment variables")
+# if not SECRET_KEY:
+#     raise Exception("SECRET_KEY not found in environment variables")
 
-DEBUG = False
+SECRET_KEY = "django-insecure-npb^3%%#n8qsk!-2x)h$*2x1^e3jnv&)z#oyzs#zf_pf)i*a&h"
 
-ALLOWED_HOSTS = ["*", "infiolo.onrender.com","infiolo.in"]
+
+
+# ALLOWED_HOSTS = ["*", "infiolo.onrender.com","infiolo.in"]
+
+# DEBUG = False
+DEBUG = True  # Local development = True, Live server = False
+
+if DEBUG:
+    # Local system
+    ALLOWED_HOSTS = [
+        "127.0.0.1",
+        "localhost",
+        "0.0.0.0",
+    ]
+else:
+    # Live server
+    ALLOWED_HOSTS = [
+        "infiolo.onrender.com",
+        "infiolo.in",
+    ]
+
 
 
 # Static files
