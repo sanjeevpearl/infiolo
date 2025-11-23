@@ -36,8 +36,8 @@ SECRET_KEY = "django-insecure-npb^3%%#n8qsk!-2x)h$*2x1^e3jnv&)z#oyzs#zf_pf)i*a&h
 
 # ALLOWED_HOSTS = ["*", "infiolo.onrender.com","infiolo.in"]
 
-DEBUG = False
-# DEBUG = True  # Local development = True, Live server = False
+# DEBUG = False
+DEBUG = True  # Local development = True, Live server = False
 
 if DEBUG:
     # Local system
@@ -54,19 +54,10 @@ else:
     ]
 
 
-
-# # Static files
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# STATICFILES_DIRS = [
-#     BASE_DIR / "home" / "static_home",
-# ]
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'home' / 'static',
+    BASE_DIR / 'home' / 'static' / 'home',
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
