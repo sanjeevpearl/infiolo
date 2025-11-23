@@ -55,13 +55,23 @@ else:
 
 
 
-# Static files
+# # Static files
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / "home" / "static_home",
+# ]
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    BASE_DIR / "home" / "static_home",
+    BASE_DIR / 'home' / 'static',
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 
 
 
