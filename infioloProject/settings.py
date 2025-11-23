@@ -36,8 +36,8 @@ SECRET_KEY = "django-insecure-npb^3%%#n8qsk!-2x)h$*2x1^e3jnv&)z#oyzs#zf_pf)i*a&h
 
 # ALLOWED_HOSTS = ["*", "infiolo.onrender.com","infiolo.in"]
 
-# DEBUG = False
-DEBUG = True  # Local development = True, Live server = False
+DEBUG = False
+# DEBUG = True  # Local development = True, Live server = False
 
 if DEBUG:
     # Local system
