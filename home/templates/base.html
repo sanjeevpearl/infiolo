@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Your full CSS from index.html -->
-        <style>
+    <style>
         :root {
             --primary: #3498db;
             --primary-dark: #2980b9;
@@ -186,24 +186,25 @@
             gap: 10px;
             height: 60px; /* Same as logo height */
         }
-.time-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient);
-    color: white;
-    padding: 6px 8px;
-    border-radius: 8px;
-    min-width: 55px;
-    height: 55px;
-    box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
-    transition: all 0.3s ease;
-    /* Ensure text doesn't overflow */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+
+        .time-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            color: white;
+            padding: 6px 8px;
+            border-radius: 8px;
+            min-width: 55px;
+            height: 55px;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            /* Ensure text doesn't overflow */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
         .time-display:hover {
             transform: translateY(-2px);
@@ -215,31 +216,31 @@
             margin-bottom: 2px;
         }
 
-.time-text {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    line-height: 1;
-    /* Ensure text fits within container */
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-align: center;
-}
+        .time-text {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            /* Ensure text fits within container */
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+        }
 
-.date-text {
-    font-size: 9px;
-    opacity: 0.9;
-    margin-top: 1px;
-    line-height: 1;
-    text-align: center;
-    /* Ensure text fits within container */
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+        .date-text {
+            font-size: 9px;
+            opacity: 0.9;
+            margin-top: 1px;
+            line-height: 1;
+            text-align: center;
+            /* Ensure text fits within container */
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
         .weather-display {
             display: flex;
@@ -318,78 +319,65 @@
             color: var(--primary);
         }
 
- /* White Hero Section */
-.white-hero {
-    background: #ffffff;
-    padding: 120px 0;
-}
+        /* White Hero Section */
+        .white-hero {
+            background: #ffffff;
+            padding: 120px 0;
+        }
 
-.hero-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-}
+        .hero-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
 
-.hero-content h1 {
-    font-size: 48px;
-    font-weight: 800;
-    color: #111;
-}
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111;
+        }
 
-.hero-content p {
-    max-width: 420px;
-    font-size: 18px;
-    color: #444;
-    margin-bottom: 20px;
-}
+        .hero-content p {
+            max-width: 420px;
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 20px;
+        }
 
-.hero-image-cloud {
-    position: relative;
-    width: 480px;
-    height: 480px;
-}
+        .hero-image-cloud {
+            position: relative;
+            width: 480px;
+            height: 480px;
+        }
 
-.tech-item {
-    width: 85px;
-    position: absolute;
-    animation: float 4s ease-in-out infinite;
-    transition: transform 0.3s;
-}
+        .tech-item {
+            width: 85px;
+            position: absolute;
+            animation: float 4s ease-in-out infinite;
+            transition: transform 0.3s;
+        }
 
-.tech-item:hover {
-    transform: scale(1.15);
-}
+        .tech-item:hover {
+            transform: scale(1.15);
+        }
 
-/* Floating Animation */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-14px); }
-    100% { transform: translateY(0px); }
-}
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-14px); }
+            100% { transform: translateY(0px); }
+        }
 
-/* Positions: Images placed "anga anga" */
-.ti1 { top: 10%; left: 20%; animation-delay: 0s; }
-.ti2 { top: 55%; left: 10%; animation-delay: 0.3s; }
-.ti3 { top: 25%; left: 60%; animation-delay: 0.6s; }
-.ti4 { top: 70%; left: 50%; animation-delay: 0.9s; }
-.ti5 { top: 40%; left: 35%; animation-delay: 1.1s; }
-.ti6 { top: 5%; left: 70%; animation-delay: 1.4s; }
-.ti7 { top: 78%; left: 15%; animation-delay: 1.7s; }
-.ti8 { top: 35%; left: 5%; animation-delay: 2s; }
-
-/* Responsive */
-@media (max-width: 900px) {
-    .hero-flex {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-image-cloud {
-        width: 100%;
-        height: 300px;
-    }
-}
-
+        /* Positions: Images placed "anga anga" */
+        .ti1 { top: 10%; left: 20%; animation-delay: 0s; }
+        .ti2 { top: 55%; left: 10%; animation-delay: 0.3s; }
+        .ti3 { top: 25%; left: 60%; animation-delay: 0.6s; }
+        .ti4 { top: 70%; left: 50%; animation-delay: 0.9s; }
+        .ti5 { top: 40%; left: 35%; animation-delay: 1.1s; }
+        .ti6 { top: 5%; left: 70%; animation-delay: 1.4s; }
+        .ti7 { top: 78%; left: 15%; animation-delay: 1.7s; }
+        .ti8 { top: 35%; left: 5%; animation-delay: 2s; }
 
         .cta-buttons {
             display: flex;
@@ -422,16 +410,15 @@
             box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
         }
 
-.cta-btn.secondary {
-    background: #f0f0f0;
-    color: #222 !important;
-    border: 2px solid #222;
-}
-.cta-btn.secondary:hover {
-    background: #222;
-    color: #fff !important;
-}
-
+        .cta-btn.secondary {
+            background: #f0f0f0;
+            color: #222 !important;
+            border: 2px solid #222;
+        }
+        .cta-btn.secondary:hover {
+            background: #222;
+            color: #fff !important;
+        }
 
         /* Features Section */
         .features {
@@ -919,6 +906,30 @@
             .weather-location {
                 font-size: 8px;
             }
+            
+            /* Hero Section Mobile */
+            .white-hero {
+                padding: 100px 0;
+            }
+            
+            .hero-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image-cloud {
+                width: 100%;
+                height: 300px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -989,33 +1000,24 @@
             .weather-location {
                 font-size: 7px;
             }
+            
+            .white-hero {
+                padding: 80px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .cta-btn {
+                padding: 14px 24px;
+                font-size: 14px;
+            }
         }
-
-
-        /* Mobile menu initially hidden */
-.nav-links {
-    display: flex;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 20px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-}
-
     </style>
 
     {% block extra_css %}{% endblock %}
@@ -1031,8 +1033,7 @@
 
     {% include 'home/footer.html' %}
 
-    <!-- Your full JS from index.html -->
-
+    <!-- Consolidated JavaScript -->
     <script>
         // Enhanced JavaScript for animations and interactions
         document.addEventListener('DOMContentLoaded', function() {
@@ -1049,12 +1050,14 @@
             // Mobile menu toggle
             const mobileMenu = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
-            mobileMenu.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                const icon = mobileMenu.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            });
+            if (mobileMenu && navLinks) {
+                mobileMenu.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    const icon = mobileMenu.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+            }
 
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1067,9 +1070,14 @@
                             block: 'start'
                         });
                         // Close mobile menu
-                        navLinks.classList.remove('active');
-                        mobileMenu.querySelector('i').classList.add('fa-bars');
-                        mobileMenu.querySelector('i').classList.remove('fa-times');
+                        if (navLinks) {
+                            navLinks.classList.remove('active');
+                            if (mobileMenu) {
+                                const icon = mobileMenu.querySelector('i');
+                                icon.classList.add('fa-bars');
+                                icon.classList.remove('fa-times');
+                            }
+                        }
                     }
                 });
             });
@@ -1158,28 +1166,41 @@
                     }
                 }, 1000);
             }
+
+            // Initialize date, time, and weather
+            updateDate();
+            updateTime();
+            getUserLocation();
+            
+            // Update time every minute
+            setInterval(updateTime, 60000);
         });
 
         // ------------------ Date ------------------
         function updateDate() {
             const now = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById("currentDate").innerText = now.toLocaleDateString("en-IN", options);
+            const dateElement = document.getElementById("currentDate");
+            if (dateElement) {
+                dateElement.innerText = now.toLocaleDateString("en-IN", options);
+            }
         }
-        updateDate();
 
-// ------------------ Time (Hours and Minutes only) ------------------
-function updateTime() {
-    const now = new Date();
-    // Format time as HH:MM (24-hour format) with no extra spaces
-    const timeString = now.toLocaleTimeString("en-IN", {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-    }).replace(/\s/g, ''); // Remove any spaces
-    
-    document.getElementById("currentTime").innerText = timeString;
-}
+        // ------------------ Time (Hours and Minutes only) ------------------
+        function updateTime() {
+            const now = new Date();
+            // Format time as HH:MM (24-hour format) with no extra spaces
+            const timeString = now.toLocaleTimeString("en-IN", {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            }).replace(/\s/g, ''); // Remove any spaces
+            
+            const timeElement = document.getElementById("currentTime");
+            if (timeElement) {
+                timeElement.innerText = timeString;
+            }
+        }
 
         // ------------------ Weather ------------------
         function getWeatherIcon(condition) {
@@ -1222,14 +1243,21 @@ function updateTime() {
                     const iconClass = getWeatherIcon(condition);
 
                     // Update weather display
-                    document.getElementById("weatherTemp").innerText = `${temp}°C`;
-                    document.getElementById("weatherLocation").innerText = city;
-                    document.getElementById("weatherIcon").innerHTML = `<i class="${iconClass}"></i>`;
+                    const weatherTemp = document.getElementById("weatherTemp");
+                    const weatherLocation = document.getElementById("weatherLocation");
+                    const weatherIcon = document.getElementById("weatherIcon");
+                    
+                    if (weatherTemp) weatherTemp.innerText = `${temp}°C`;
+                    if (weatherLocation) weatherLocation.innerText = city;
+                    if (weatherIcon) weatherIcon.innerHTML = `<i class="${iconClass}"></i>`;
                 })
                 .catch((error) => {
                     console.error('Weather fetch error:', error);
-                    document.getElementById("weatherTemp").innerText = "--°C";
-                    document.getElementById("weatherLocation").innerText = "Weather unavailable";
+                    const weatherTemp = document.getElementById("weatherTemp");
+                    const weatherLocation = document.getElementById("weatherLocation");
+                    
+                    if (weatherTemp) weatherTemp.innerText = "--°C";
+                    if (weatherLocation) weatherLocation.innerText = "Weather unavailable";
                 });
         }
 
@@ -1251,44 +1279,15 @@ function updateTime() {
                     }
                 );
             } else {
-                document.getElementById("weatherLocation").innerText = "Location not supported";
+                const weatherLocation = document.getElementById("weatherLocation");
+                if (weatherLocation) {
+                    weatherLocation.innerText = "Location not supported";
+                }
                 // Fallback to a default location
                 getWeather(28.6139, 77.2090);
             }
         }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            updateDate();
-            updateTime();
-            getUserLocation();
-        });
     </script>
-
-
- <!-- JS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            const mobileMenu = document.querySelector(".mobile-menu");
-            const navLinks = document.querySelector(".nav-links");
-            const icon = mobileMenu.querySelector("i");
-
-            mobileMenu.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-
-                if (navLinks.classList.contains("active")) {
-                    icon.classList.remove("fa-bars");
-                    icon.classList.add("fa-times");
-                } else {
-                    icon.classList.add("fa-bars");
-                    icon.classList.remove("fa-times");
-                }
-            });
-
-        });
-    </script>
-
 
     {% block extra_js %}{% endblock %}
 </body>

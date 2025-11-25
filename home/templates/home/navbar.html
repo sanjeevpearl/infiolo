@@ -11,6 +11,7 @@
                          alt="Infiolo Technology Logo"
                          class="logo-img"
                          onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+                   
                 </div>
 
                 <div class="logo-text-container">
@@ -31,13 +32,10 @@
                 </ul>
             </div>
 
-            <!-- Login Button (Hidden in Mobile) -->
-            <a href="{% url 'login' %}" class="login-btn">Login</a>
-
-            <!-- Right Widget (Hidden in Mobile) -->
+            <!-- Right Section - Combined Login & Widgets -->
             <div class="right-section">
+                <!-- Weather & Time Widget -->
                 <div class="weather-time-widget">
-
                     <div class="time-display">
                         <div class="time-icon"><i class="far fa-clock"></i></div>
                         <div class="time-text" id="currentTime">--:--</div>
@@ -51,8 +49,10 @@
                             <div class="weather-location" id="weatherLocation">Loading...</div>
                         </div>
                     </div>
-
                 </div>
+
+                <!-- Login Button -->
+                <a href="{% url 'login' %}" class="login-btn">Login</a>
             </div>
 
             <!-- Mobile Menu Button -->
