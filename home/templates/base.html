@@ -1266,26 +1266,28 @@ function updateTime() {
     </script>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const mobileMenu = document.querySelector(".mobile-menu");
-    const navLinks = document.querySelector(".nav-links");
-    const menuIcon = mobileMenu.querySelector("i");
+ <!-- JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
 
-    mobileMenu.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
+            const mobileMenu = document.querySelector(".mobile-menu");
+            const navLinks = document.querySelector(".nav-links");
+            const icon = mobileMenu.querySelector("i");
 
-        // icon change
-        if (navLinks.classList.contains("active")) {
-            menuIcon.classList.remove("fa-bars");
-            menuIcon.classList.add("fa-times");
-        } else {
-            menuIcon.classList.add("fa-bars");
-            menuIcon.classList.remove("fa-times");
-        }
-    });
-});
-</script>
+            mobileMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+
+                if (navLinks.classList.contains("active")) {
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-times");
+                } else {
+                    icon.classList.add("fa-bars");
+                    icon.classList.remove("fa-times");
+                }
+            });
+
+        });
+    </script>
 
 
     {% block extra_js %}{% endblock %}
