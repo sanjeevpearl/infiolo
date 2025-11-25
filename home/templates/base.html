@@ -990,6 +990,32 @@
                 font-size: 7px;
             }
         }
+
+
+        /* Mobile menu initially hidden */
+.nav-links {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
     </style>
 
     {% block extra_css %}{% endblock %}
@@ -1238,6 +1264,29 @@ function updateTime() {
             getUserLocation();
         });
     </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const navLinks = document.querySelector(".nav-links");
+    const menuIcon = mobileMenu.querySelector("i");
+
+    mobileMenu.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+
+        // icon change
+        if (navLinks.classList.contains("active")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+        } else {
+            menuIcon.classList.add("fa-bars");
+            menuIcon.classList.remove("fa-times");
+        }
+    });
+});
+</script>
+
 
     {% block extra_js %}{% endblock %}
 </body>
