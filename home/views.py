@@ -8,6 +8,8 @@ from django.contrib.auth import logout
 
 def home_view(request):
     return render(request, "home/index.html")
+def about(request):
+    return render(request, 'home/about.html')
 
 def login_view(request):
     if request.method == "POST":

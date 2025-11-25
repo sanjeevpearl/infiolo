@@ -1,0 +1,438 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    /* Base Styles */
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header Section */
+    .about-header {
+       background: linear-gradient(135deg, #0a1224 0%, #003366 40%, #005c99 70%, #00aaff 100%);
+
+
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 80px;
+    }
+
+    .about-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,170.7C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .about-header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        position: relative;
+        animation: fadeInDown 1s ease;
+    }
+
+    .about-header p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+        animation: fadeInUp 1s ease;
+    }
+
+    /* About Section */
+    .about-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 80px 0;
+        gap: 50px;
+        margin-bottom: 80px;
+    }
+
+    .about-section img {
+        width: 45%;
+        border-radius: 12px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease;
+    }
+
+    .about-section img:hover {
+        transform: translateY(-10px);
+    }
+
+    .about-text {
+        width: 50%;
+    }
+
+    .about-text h2 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .about-text h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        border-radius: 2px;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.7;
+    }
+
+    /* Mission Boxes */
+    .mission-boxes {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 80px 0;
+        background-color: #f0f5ff;
+        border-radius: 20px;
+        margin: 50px 0;
+    }
+
+    .mission-item {
+        flex: 1;
+        background: white;
+        padding: 40px 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mission-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .mission-item h3 {
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .mission-item h3::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        border-radius: 2px;
+    }
+
+    .mission-item p {
+        color: #666;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Team Section */
+    .team-section {
+        padding: 100px 0;
+        text-align: center;
+    }
+
+    .team-section h2 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .team-section h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        border-radius: 2px;
+    }
+
+    .team-section > p {
+        color: #666;
+        margin-bottom: 50px;
+        font-size: 1.1rem;
+    }
+
+    .team-members {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .team-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        width: 280px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-card img {
+        width: 130px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 5px solid #f0f5ff;
+    }
+
+    .team-card h3 {
+        font-size: 1.4rem;
+        color: #2c3e50;
+        margin-bottom: 8px;
+    }
+
+    .team-card p {
+        color: #666;
+        font-size: 1rem;
+    }
+
+    /* Stats Section */
+    .stats-section {
+        background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+        color: white;
+        padding: 80px 0;
+        border-radius: 20px;
+        margin: 80px 0;
+        text-align: center;
+    }
+
+    .stats-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        padding: 20px;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .stat-label {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .about-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .about-section img,
+        .about-text {
+            width: 100%;
+        }
+
+        .mission-boxes {
+            flex-direction: column;
+        }
+
+        .team-members {
+            gap: 20px;
+        }
+        
+        .stats-container {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .about-header h1 {
+            font-size: 2.5rem;
+        }
+
+        .about-header p {
+            font-size: 1rem;
+        }
+
+        .about-text h2,
+        .team-section h2 {
+            font-size: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+        }
+    }
+</style>
+
+<div class="about-container">
+    <!-- Header -->
+    <div class="about-header">
+        <h1>About Infiolo</h1>
+        <p>
+            We're a modern tech company delivering innovative digital solutions — from web apps to cloud systems.
+            Our mission is to help businesses grow faster using future-ready technology.
+        </p>
+    </div>
+
+    <!-- Who We Are -->
+    <section class="about-section">
+<img src="{% static 'images/about-illustration.png' %}" alt="Tech Illustration" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'"> 
+
+        <div class="about-text">
+            <h2>Who We Are?</h2>
+            <p>
+                Infiolo is a growing digital agency focused on building reliable, scalable and intelligent software.
+                We help startups, small businesses and enterprises transform their ideas into powerful digital products.
+            </p>
+            <p>
+                Our team of passionate developers, designers, and strategists work together to create solutions that 
+                not only meet today's needs but are prepared for tomorrow's challenges.
+            </p>
+        </div>
+    </section>
+
+  
+
+    <!-- Mission / Vision / Values -->
+    <div class="mission-boxes">
+        <div class="mission-item">
+            <h3>Our Mission</h3>
+            <p>Deliver modern and affordable technology solutions that create real impact for businesses of all sizes.</p>
+        </div>
+
+        <div class="mission-item">
+            <h3>Our Vision</h3>
+            <p>Empower every business with simple, smart and scalable digital solutions that drive growth and innovation.</p>
+        </div>
+
+        <div class="mission-item">
+            <h3>Our Values</h3>
+            <p>Innovation, transparency, commitment and building long-term customer relationships based on trust.</p>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2>Our Team</h2>
+        <p>Small team. Big vision. Exceptional results.</p>
+
+        <div class="team-members">
+            <div class="team-card">
+                <img src="{% static 'home/images/mypic.jpg' %}" alt="Sanjeev">
+                <h3>Sanjeev M</h3>
+                <p>Founder & Developer</p>
+            </div>
+
+            <!-- <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Team Member">
+                <h3>Sarah Johnson</h3>
+                <p>UI/UX Designer</p>
+            </div> -->
+
+            <!-- <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Team Member">
+                <h3>Michael Chen</h3>
+                <p>Backend Developer</p>
+            </div> -->
+        </div>
+    </section>
+</div>
+
+<script>
+    // Simple animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe mission items
+        document.querySelectorAll('.mission-item').forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(item);
+        });
+
+        // Observe team cards
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    });
+</script>
+
+{% endblock %}
