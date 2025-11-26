@@ -1018,7 +1018,66 @@
                 font-size: 14px;
             }
         }
+        /* Default Hidden Mobile Elements */
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+.mobile-nav {
+    display: none;
+}
+
+/* Desktop Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Mobile Version */
+@media (max-width: 768px) {
+
+    .nav-section {
+        display: none !important;
+    }
+
+    .right-section {
+        display: none !important;
+    }
+
+    .mobile-menu {
+        display: block;
+        font-size: 28px;
+        color: #00A3FF;
+    }
+
+    .mobile-nav {
+        display: none;
+        flex-direction: column;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-top: 10px;
+    }
+
+    .mobile-nav a {
+        padding: 12px 0;
+        font-size: 18px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+        color: #222;
+    }
+
+    .mobile-nav a:last-child {
+        border-bottom: none;
+    }
+}
+
     </style>
+
+    
 
     {% block extra_css %}{% endblock %}
 </head>
@@ -1032,6 +1091,14 @@
     </main>
 
     {% include 'home/footer.html' %}
+    <script>
+document.querySelector(".mobile-menu").addEventListener("click", function () {
+    let mobileNav = document.querySelector(".mobile-nav");
+    mobileNav.style.display = 
+        mobileNav.style.display === "flex" ? "none" : "flex";
+});
+</script>
+
 
     <!-- Consolidated JavaScript -->
     <script>

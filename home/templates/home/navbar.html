@@ -11,7 +11,6 @@
                          alt="Infiolo Technology Logo"
                          class="logo-img"
                          onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
-                   
                 </div>
 
                 <div class="logo-text-container">
@@ -20,7 +19,7 @@
                 </div>
             </div>
 
-            <!-- Center Navigation -->
+            <!-- Center Navigation (Desktop Only) -->
             <div class="nav-section">
                 <ul class="nav-links">
                     <li><a href="/" class="active">Home</a></li>
@@ -32,9 +31,8 @@
                 </ul>
             </div>
 
-            <!-- Right Section - Combined Login & Widgets -->
+            <!-- Right Section - Widgets (Desktop Only) -->
             <div class="right-section">
-                <!-- Weather & Time Widget -->
                 <div class="weather-time-widget">
                     <div class="time-display">
                         <div class="time-icon"><i class="far fa-clock"></i></div>
@@ -51,7 +49,6 @@
                     </div>
                 </div>
 
-                <!-- Login Button -->
                 <a href="{% url 'login' %}" class="login-btn">Login</a>
             </div>
 
@@ -61,5 +58,17 @@
             </div>
 
         </nav>
+
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-nav">
+            <a href="/">Home</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="#services">Services</a>
+            <a href="#products">Products</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact</a>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+
     </div>
 </header>
