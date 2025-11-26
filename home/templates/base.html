@@ -1034,7 +1034,6 @@
     align-items: center;
     padding: 15px 0;
 }
-
 /* Mobile Version */
 @media (max-width: 768px) {
 
@@ -1050,6 +1049,7 @@
         display: block;
         font-size: 28px;
         color: #00A3FF;
+        cursor: pointer;
     }
 
     .mobile-nav {
@@ -1065,15 +1065,19 @@
     .mobile-nav a {
         padding: 12px 0;
         font-size: 18px;
-        border-bottom: 1px solid #eee;
         text-align: center;
-        color: #222;
+        color: #00A3FF;        /* same theme color */
+        text-decoration: none; /* underline remove */
+        border-bottom: none;   /* remove line */
+        display: block;
     }
 
-    .mobile-nav a:last-child {
-        border-bottom: none;
+    .mobile-nav a:hover {
+        background: #f0f8ff;   /* soft hover */
+        border-radius: 6px;
     }
 }
+
 
     </style>
 
